@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .nav{
+    @apply relative ml-10 text-white hover:text-white;
+    display: block; 
+  }
+
+  .nav::after{
+    @apply content-[''] bg-white h-[3px] w-[0%] left-0 -bottom-[5px]
+    rounded-xl absolute duration-500
+  }
+
+  .nav:hover::after{
+    @apply w-[100%]
+  }
+
+  nav.sticky {
+  top: 0;
+  }
+
+  .button{
+    padding: 5px 15px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0; 
+    text-transform: uppercase;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+
+  .square-box{
+    padding: 8px;
+    margin: 8px auto;
+  }
+
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 500px; /* Adjust the height as needed */
+  }
+
+   .slide-up-down {
+    scroll-margin: 50px 0 50px 0;
+    animation: slide-up-down 0.5s ease-in-out;
+  }
+
+  @keyframes slide-up-down {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+}
